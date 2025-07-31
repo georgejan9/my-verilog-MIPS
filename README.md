@@ -90,7 +90,7 @@ Compile and run the simulation
 ## 🧠 Supported MIPS Instructions
 This Verilog-based MIPS processor supports a wide variety of instructions from the MIPS instruction set architecture, including R-type, I-type, J-type, and a few custom/extended instructions.
 
-### R-Type Instructions
+### 🟩 R-Type Instructions
 R-type instructions use three registers (rs, rt, rd) and are identified by an opcode of 0. The operation is specified by the funct field. Supported R-type instructions:
 
 add – Add (funct = 32)
@@ -119,7 +119,7 @@ lwr – Load Word Right (funct = 20) (custom)
 
 sbit – Store Bit (custom)
 
-### I-Type Instructions
+### 🟨 I-Type Instructions
 I-type instructions use two registers and a 16-bit immediate value. These are used for arithmetic with immediates, memory access, and branches. Supported I-type instructions:
 
 addi – Add Immediate (opcode = 8)
@@ -152,7 +152,7 @@ sw – Store Word (opcode = 43)
 
 #sh – Store Halfword (opcode = 41)
 
-### J-Type Instructions
+### 🟦 J-Type Instructions
 J-type instructions handle unconditional jumps and linking. These use a 26-bit target address field.
 
 j – Jump (opcode = 2)
@@ -161,24 +161,26 @@ jal – Jump and Link (opcode = 3)
 
 jalr – Jump and Link Register (opcode = 53)
 
-jm – Jump (custom variant) (opcode = 54)
+jm – Custom Jump (opcode = 54)
 
-jalim – Jump and Link Immediate (opcode = 52) (custom)
+jalm – Custom Jump (opcode = 52)
 
-### Custom and Extended Instructions
+### 🟪 Custom and Extended Instructions
 The design also includes custom or extended instructions beyond the standard MIPS ISA:
 
 lbit – Load Bit (opcode = 49)
 
 sbit – Store Bit (opcode = 50)
 
-jalim – Jump and Link Immediate (opcode = 52)
+jalm – Custom Jump (opcode = 52)
 
 subi – Subtract Immediate (opcode = 51)
 
 jm – Custom Jump (opcode = 54)
 
+jalr – Jump and Link Register (opcode = 53)
 
+lwr – Load Word Right (funct = 20) (custom)
 
 ## ⚙️ Tools Used
 Verilog HDL
