@@ -1,0 +1,147 @@
+`timescale 1ns/1ps
+module Data_memory_tb ();
+	reg MemWrite;
+	reg [1:0]sel,byte_addr;
+	reg [31:2] Address;
+	reg [31:0]Write_data;
+	wire [31:0] Read_data;
+	reg clk=0;
+	parameter clk_Prd=100;
+	always # (clk_Prd/2) clk=~clk;
+
+Data_memory DUT (
+	.clk(clk),
+	.sel(sel),
+	.MemWrite(MemWrite),
+	.Address(Address),
+	.Write_data(Write_data),
+	.Read_data(Read_data),
+	.byte_addr(byte_addr)
+);
+	initial
+	begin
+	sel=2'b00;
+	byte_addr=2'b00;
+	MemWrite=1'b1;
+	Address=30'd127;
+	Write_data=32'hfafa;
+	#80;
+	sel=2'b00;
+	byte_addr=2'b00;
+	MemWrite=1'b1;
+	Address=30'd126;
+	Write_data=32'hbaba;
+	#100;
+	sel=2'b01;
+	byte_addr=2'b00;
+	MemWrite=1'b1;
+	Address=30'd125;
+	Write_data=32'habcd;
+	#100;
+	sel=2'b10;
+	byte_addr=2'b00;
+	MemWrite=1'b1;
+	Address=30'd124;
+	Write_data=32'hadbf;
+	#100;
+	sel=2'b11;
+	byte_addr=2'b00;
+	MemWrite=1'b1;
+	Address=30'd123;
+	Write_data=32'hfabc;
+	#100;
+////////////byte_addr_01
+	sel=2'b00;
+	byte_addr=2'b01;
+	MemWrite=1'b1;
+	Address=30'd127;
+	Write_data=32'hfafa;
+	#80;
+	sel=2'b00;
+	byte_addr=2'b01;
+	MemWrite=1'b1;
+	Address=30'd126;
+	Write_data=32'hbaba;
+	#100;
+	sel=2'b01;
+	byte_addr=2'b01;
+	MemWrite=1'b1;
+	Address=30'd125;
+	Write_data=32'habcd;
+	#100;
+	sel=2'b10;
+	byte_addr=2'b01;
+	MemWrite=1'b1;
+	Address=30'd124;
+	Write_data=32'hadbf;
+	#100;
+	sel=2'b11;
+	byte_addr=2'b01;
+	MemWrite=1'b1;
+	Address=30'd123;
+	Write_data=32'hfabc;
+	#100;
+/////byte_addr_10
+	sel=2'b00;
+	byte_addr=2'b10;
+	MemWrite=1'b1;
+	Address=30'd127;
+	Write_data=32'hfafa;
+	#80;
+	sel=2'b00;
+	byte_addr=2'b10;
+	MemWrite=1'b1;
+	Address=30'd126;
+	Write_data=32'hbaba;
+	#100;
+	sel=2'b01;
+	byte_addr=2'b10;
+	MemWrite=1'b1;
+	Address=30'd125;
+	Write_data=32'habcd;
+	#100;
+	sel=2'b10;
+	byte_addr=2'b10;
+	MemWrite=1'b1;
+	Address=30'd124;
+	Write_data=32'hadbf;
+	#100;
+	sel=2'b11;
+	byte_addr=2'b10;
+	MemWrite=1'b1;
+	Address=30'd123;
+	Write_data=32'hfabc;
+	#100;
+///////byte_addr_11
+	sel=2'b00;
+	byte_addr=2'b11;
+	MemWrite=1'b1;
+	Address=30'd127;
+	Write_data=32'hfafa;
+	#80;
+	sel=2'b00;
+	byte_addr=2'b11;
+	MemWrite=1'b1;
+	Address=30'd126;
+	Write_data=32'hbaba;
+	#100;
+	sel=2'b01;
+	byte_addr=2'b11;
+	MemWrite=1'b1;
+	Address=30'd125;
+	Write_data=32'habcd;
+	#100;
+	sel=2'b10;
+	byte_addr=2'b11;
+	MemWrite=1'b1;
+	Address=30'd124;
+	Write_data=32'hadbf;
+	#100;
+	sel=2'b11;
+	byte_addr=2'b11;
+	MemWrite=1'b1;
+	Address=30'd123;
+	Write_data=32'hfabc;
+	#100;
+	end
+endmodule
