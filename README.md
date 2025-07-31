@@ -243,5 +243,9 @@ my-verilog-MIPS/
 │   ├── shift_left_2_32_32_tb.v
 │   └── Shift_lui_unit_tb.v
 │
-├── README.md
+├── report/                   # Project documentation
+│   └── MIPS_Project.pdf
+│
+└── README.md
+
 ```
